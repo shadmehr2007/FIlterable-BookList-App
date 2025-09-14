@@ -1,0 +1,11 @@
+table thead tr th{
+    width: 25%;
+    font-size: 1.2em;
+    
+}
+table tbody tr:nth-child(odd){
+    background-color: #ccc;
+}
+table tbody tr{
+    padding: 5px 0px;
+}

@@ -7,7 +7,40 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    
+<body class="w-[500px] mx-auto container">
+    <header class="my-5">
+        <input type="search" id="filterInput" class="border-[1.5px] border-[#ccc] rounded-sm mb-5 py-1 px-5 focus:border-blue-500 duration-[300ms] outline-none" placeholder="Search..." >
+        <h1 class="text-center text-5xl">MY <span class="text-blue-500">Book</span>List</h1>
+    </header>
+    <main id="main">
+        <form  id="form">
+            <div class="formGroupItem flex flex-col">
+                <label class="text-xl" for="title">Title</label>
+                <input class="my-2 border-[1.5px] border-[#ccc] py-2 px-2 rounded-sm focus:border-blue-500 duration-[300ms] outline-none" type="text" id="title" placeholder="title"> 
+            </div>
+            <div class="formGroupItem flex flex-col">
+                <label class="text-xl" for="author">author</label>
+                <input class="my-2 border-[1.5px] border-[#ccc] py-2 px-2 rounded-sm focus:border-blue-500 duration-[300ms] outline-none" type="text" id="author" placeholder="title"> 
+            </div>
+            <div class="formGroupItem flex flex-col">
+                <label class="text-xl" for="isbn">ISBN</label>
+                <input class="my-2 border-[1.5px] border-[#ccc] py-2 px-2 rounded-sm focus:border-blue-500 duration-[300ms] outline-none" type="text" id="isbn" placeholder="title"> 
+            </div>
+            <div class="btnBox">
+                <input class="bg-blue-500  my-2 w-full text-white py-2 rounded-sm text-lg" type="submit" value="Add Book">
+            </div>
+        </form>
+        <table class="w-full my-4">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="bookList"></tbody>
+        </table>
+    </main>
 </body>
 </html>
