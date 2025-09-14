@@ -7,30 +7,30 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="w-[500px] mx-auto container">
+<body class="w-[300px] sm:w-[500px] mx-auto container">
     <header class="my-5">
         <input type="search" id="filterInput" class="border-[1.5px] border-[#ccc] rounded-sm mb-5 py-1 px-5 focus:border-blue-500 duration-[300ms] outline-none" placeholder="Search..." >
-        <h1 class="text-center text-5xl">MY <span class="text-blue-500">Book</span>List</h1>
+        <h1 class="text-center text-3xl sm:text-5xl">MY <span class="text-blue-500">Book</span>List</h1>
     </header>
     <main id="main">
         <form  id="form">
             <div class="formGroupItem flex flex-col">
-                <label class="text-xl" for="title">Title</label>
-                <input class="my-2 border-[1.5px] border-[#ccc] py-2 px-2 rounded-sm focus:border-blue-500 duration-[300ms] outline-none" type="text" id="title" placeholder="title"> 
+                <label class="text-lg md:text-xl" for="title">Title</label>
+                <input class="my-2 border-[1.5px] border-[#ccc] py-1 sm:py-2 px-2 rounded-sm focus:border-blue-500 duration-[300ms] outline-none" type="text" id="title" placeholder="title"> 
             </div>
             <div class="formGroupItem flex flex-col">
-                <label class="text-xl" for="author">author</label>
-                <input class="my-2 border-[1.5px] border-[#ccc] py-2 px-2 rounded-sm focus:border-blue-500 duration-[300ms] outline-none" type="text" id="author" placeholder="author"> 
+                <label class="text-lg md:text-xl" for="author">author</label>
+                <input class="my-2 border-[1.5px] border-[#ccc] py-1 sm:py-2 px-2 rounded-sm focus:border-blue-500 duration-[300ms] outline-none" type="text" id="author" placeholder="author"> 
             </div>
             <div class="formGroupItem flex flex-col">
-                <label class="text-xl" for="isbn">ISBN</label>
-                <input class="my-2 border-[1.5px] border-[#ccc] py-2 px-2 rounded-sm focus:border-blue-500 duration-[300ms] outline-none" type="text" id="isbn" placeholder="isbn"> 
+                <label class="text-lg md:text-xl" for="isbn">ISBN</label>
+                <input class="my-2 border-[1.5px] border-[#ccc] py-1 sm:py-2 px-2 rounded-sm focus:border-blue-500 duration-[300ms] outline-none" type="text" id="isbn" placeholder="isbn"> 
             </div>
             <div class="btnBox">
-                <input class="bg-blue-500  my-2 w-full text-white py-2 rounded-sm text-lg" type="submit" value="Add Book">
+                <input class="bg-blue-500  my-2 w-full text-white py-1 sm:py-2 rounded-sm text-md sm:text-lg" type="submit" value="Add Book">
             </div>
         </form>
-        <table class="w-full my-4">
+        <table class="w-full my-4 text-sm sm:text-lg">
             <thead>
                 <tr>
                     <th>Title</th>

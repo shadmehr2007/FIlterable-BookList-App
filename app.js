@@ -7,12 +7,54 @@ class Books {
   }
 }
 
+// Store Class 
+ class Store {
+    static getBooks(){
+        let books; 
+        if(localStorage.getItem('books') === null){
+            books = [];
+        } else {
+            books = JSON.parse(localStorage.getItem('books'));
+        }
+
+        return books;
+    }
+
+    static addBooks(book){
+        const books = Store.getBooks();
+
+        books.push(book);
+
+        localStorage.setItem('books', JSON.stringify(books));
+    }
+
+    static removeBooks(isbn){
+        const books = Store.getBooks();
+
+        books.forEach((book, index) => {
+            if(book.isbn === isbn){
+                books.splice(index, 1);
+            }
+        })
+        localStorage.setItem('books', JSON.stringify(books));
+    }
+ }
+
 // UI Class
 class UI {
+    static displayBooks(e){
+        e.preventDefault();
+        const books = Store.getBooks();
+
+        books.forEach((book) => {
+            UI.addBookToList(book);
+        })
+    }
+
   static addBookToList(book) {
     const row = document.createElement("tr");
     const bookList = document.getElementById("bookList");
-
+    row.className = 'book';
     row.innerHTML = `
         <td>${book.title}</td>
         <td>${book.author}</td>
@@ -43,6 +85,11 @@ class UI {
     const isbn = document.getElementById('isbn').value = '';
     
   }
+  static deleteBook(el){
+    if(el.classList.contains('delete')){
+        el.parentElement.parentElement.remove();
+    }
+  }
 }
 
 // Add Book
@@ -59,6 +106,35 @@ form.addEventListener("submit", (e) => {
     const book = new Books(title, author, isbn);
     UI.addBookToList(book);
     UI.showAlert('Book added', 'success');
+    Store.addBooks(book);
   }
   UI.clearFields();
 });
+
+
+// Delete Book 
+const bookList = document.getElementById('bookList');
+bookList.addEventListener('click', (e) => {
+    UI.deleteBook(e.target);
+    Store.removeBooks(e.target.parentElement.previousElementSibling.textContent);
+})
+
+
+document.addEventListener('DOMContentLoaded', UI.displayBooks);
+
+// Filter Books
+const filterInput = document.getElementById('filterInput');
+filterInput.addEventListener('keyup', filterItems);
+function filterItems(){
+    const filterValue = document.getElementById('filterInput').value.toUpperCase();
+    const books = document.querySelectorAll('.book');
+    books.forEach((book) => {
+        const bookValue = book.firstElementChild.textContent.toUpperCase();
+        console.log(bookValue);
+        if(bookValue.indexOf(filterValue) === -1){
+            book.style.display = 'none';
+        } else {
+            book.style.display = '';
+        }
+    })
+}

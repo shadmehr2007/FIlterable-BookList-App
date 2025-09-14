@@ -1,6 +1,6 @@
 table thead tr th{
     width: 25%;
-    font-size: 1.2em;
+    padding-block: 7px;
     
 }
 table tbody tr:nth-child(odd){
@@ -11,3 +11,4 @@ table tbody tr td{
     width: 25%;
     text-align: center;
 }
+
