@@ -6,6 +6,8 @@ table thead tr th{
 table tbody tr:nth-child(odd){
     background-color: #ccc;
 }
-table tbody tr{
-    padding: 5px 0px;
+table tbody tr td{
+    padding: 10px 0px;
+    width: 25%;
+    text-align: center;
 }
